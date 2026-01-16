@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jason Interior - 미니멀하고 세련된 인테리어 디자인 스튜디오. 모던, 내추럴, 클래식 등 다양한 컨셉의 공간 디자인을 제공합니다.">
+    <meta name="keywords" content="인테리어, 디자인, 모던, 미니멀, Jason Interior, 공간 디자인">
+    <title>Jason Interior | Premium Interior Design Studio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neutral-50': '#fafafa',
+                        'neutral-100': '#f5f5f5',
+                        'neutral-200': '#e5e5e5',
+                        'neutral-800': '#262626',
+                        'neutral-900': '#171717',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'Pretendard', 'system-ui', 'sans-serif'],
+                        'display': ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+            (function () {
+                emailjs.init({
+                    publicKey: "_4mBvlm4tF4Uoi8af"
+                });
+            })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-white text-neutral-900 font-sans antialiased">
+    <!-- Header -->
+    <header id="header"
+        class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <img src="images/logo.png?v=3" alt="Jason Interior" class="h-10 lg:h-12 w-auto">
+                </a>
+
+                <!-- Right Controls -->
+                <div class="flex items-center gap-6">
+                    <!-- Language Selector -->
+                    <div class="hidden sm:flex items-center gap-2 text-sm">
+                        <button id="lang-en"
+                            class="lang-btn px-2 py-1 rounded text-neutral-500 hover:text-neutral-900 transition-colors"
+                            data-lang="en">EN</button>
+                        <span class="text-neutral-300">/</span>
+                        <button id="lang-kr" class="lang-btn px-2 py-1 rounded text-neutral-900 font-medium"
+                            data-lang="kr">KR</button>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 -mr-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-white transform translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="flex flex-col h-full p-6">
+            <button id="close-menu-btn" class="self-end p-2 -mr-2 mb-8">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <nav class="flex flex-col gap-6 text-lg font-medium">
+                <a href="#concepts" class="mobile-link" data-i18n="nav_concepts">Concepts</a>
+                <a href="#projects" class="mobile-link" data-i18n="nav_projects">Projects</a>
+                <a href="#quote" class="mobile-link" data-i18n="nav_contact">Contact</a>
+            </nav>
+            <div class="mt-auto flex gap-4 pt-8 border-t border-neutral-100">
+                <button class="lang-btn text-sm font-medium transition-colors" data-lang="en">EN</button>
+                <span class="text-neutral-300">|</span>
+                <button class="lang-btn text-sm font-medium transition-colors text-neutral-500"
+                    data-lang="kr">KR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Slider -->
+    <section id="projects" class="pt-16 lg:pt-20">
+        <div class="relative w-full h-[60vh] lg:h-[85vh] overflow-hidden bg-neutral-100">
+            <!-- Slides -->
+            <div class="slider-container relative w-full h-full">
+                <!-- Slide 1 -->
+                <div
+                    class="slider-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-100 active">
+                    <img src="images/concept_media wall1.jpg" alt="Project 1" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slider-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <img src="images/concept_arch2.png" alt="Project 2" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slider-slide absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0">
+                    <img src="images/concept_modern chic4.png" alt="Project 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <button id="slider-next"
+                class="absolute right-4 lg:right-12 top-1/2 -translate-y-1/2 w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition-all z-10">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <!-- Dots -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+                <button class="slider-dot w-2 h-2 rounded-full bg-white transition-all active"></button>
+                <button class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                <button class="slider-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Tabs & Gallery -->
+    <section id="concepts" class="py-16 lg:py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 lg:mb-16">
+            <!-- Tabs Header -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-display font-medium mb-4" id="concept-label">Modern</h2>
+                    <div class="h-px w-12 bg-neutral-900"></div>
+                </div>
+
+                <!-- Tab List -->
+                <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm lg:text-base text-neutral-400">
+                    <button class="concept-tab active transition-colors hover:text-neutral-600" data-concept="modern"
+                        data-i18n="concept_modern" data-img="images/concept_white modern.png">Modern</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="natural-wood"
+                        data-i18n="concept_natural" data-img="images/concept_natural3.jpg">Natural Wood</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="shape"
+                        data-i18n="concept_shape" data-img="images/concept_white shape1.png">Shape</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="retro"
+                        data-i18n="concept_retro" data-img="images/concept_retro3.png">Retro</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="mid-century"
+                        data-i18n="concept_midcentury" data-img="images/concept_midcentury1.png">Mid-Century</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="classic"
+                        data-i18n="concept_classic" data-img="images/concept_classic1.png">Classic</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="contemporary"
+                        data-i18n="concept_contemporary" data-img="images/hero_contemporary.png">Contemporary</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="vintage"
+                        data-i18n="concept_vintage" data-img="images/concept_antique.jpg">Vintage</button>
+                    <button class="concept-tab transition-colors hover:text-neutral-600" data-concept="oriental"
+                        data-i18n="concept_oriental" data-img="images/concept_oriental1.png">Oriental</button>
+                </div>
+            </div>
+
+            <!-- Main Concept Image (Square & Large) -->
+            <div
+                class="relative w-full aspect-square lg:aspect-[16/10] max-h-[80vh] overflow-hidden rounded-lg bg-neutral-100 mb-16 shadow-xl">
+                <img id="concept-image" src="images/concept_white modern.png" alt="Concept"
+                    class="w-full h-full object-cover transition-opacity duration-300">
+            </div>
+        </div>
+
+        <!-- Scroll Gallery (Square Items) -->
+        <div id="scroll-gallery"
+            class="w-full overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing pl-6 lg:pl-[max(2rem,calc((100vw-80rem)/2))]">
+            <div id="gallery-track" class="flex gap-4 lg:gap-8 w-max pb-8">
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_white modern.png" data-title="Modern">
+                    <img src="images/concept_white modern.png" alt="Modern"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_natural3.jpg" data-title="Natural Wood">
+                    <img src="images/concept_natural3.jpg" alt="Natural Wood"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_white shape1.png" data-title="Shape">
+                    <img src="images/concept_white shape1.png" alt="Shape"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_retro3.png" data-title="Retro">
+                    <img src="images/concept_retro3.png" alt="Retro"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_midcentury1.png" data-title="Mid-Century">
+                    <img src="images/concept_midcentury1.png" alt="Mid-Century"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_classic1.png" data-title="Classic">
+                    <img src="images/concept_classic1.png" alt="Classic"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/hero_contemporary.png" data-title="Contemporary">
+                    <img src="images/hero_contemporary.png" alt="Contemporary"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_antique.jpg" data-title="Vintage">
+                    <img src="images/concept_antique.jpg" alt="Vintage"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item flex-shrink-0 w-80 lg:w-[30rem] aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md"
+                    data-src="images/concept_oriental1.png" data-title="Oriental">
+                    <img src="images/concept_oriental1.png" alt="Oriental"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col items-center gap-12">
+                <!-- Text Content -->
+                <div class="w-full max-w-4xl text-center">
+                    <h2 class="text-3xl lg:text-4xl font-display font-medium mb-8 leading-tight"
+                        data-i18n="intro_title">
+                        Total Solution Service<br>Beyond Design
+                    </h2>
+                    <p class="text-neutral-600 text-lg leading-relaxed whitespace-pre-line" data-i18n="intro_desc">
+                        jason interior는 체계적인 프로세스로 고객과의 처음 만남부터 최종 완성과 향후의 관리까지 전문성과 성실함으로 소통하며, 공간 디자인을 넘어 토탈 솔루션
+                        서비스를 제공합니다. 작은 공사부터 큰 공사까지 성실히 수행하겠습니다.
+                    </p>
+                </div>
+                <!-- Image -->
+                <div class="w-full">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <img src="images/소개섹션이미지.png" alt="Introduction"
+                            class="w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Band -->
+    <section id="marquee" class="py-6 lg:py-8 bg-neutral-100 overflow-hidden">
+        <div class="marquee-track flex whitespace-nowrap animate-marquee">
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">jason
+                interior</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">•</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">jason
+                interior</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">•</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">jason
+                interior</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">•</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">jason
+                interior</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">•</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">jason
+                interior</span>
+            <span
+                class="marquee-text mx-12 text-2xl lg:text-4xl font-display font-light tracking-widest text-neutral-400">•</span>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section id="quote" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-2xl mx-auto px-6 lg:px-8">
+            <!-- Heading -->
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-display font-medium mb-4" data-i18n="quote_title">Request a Quote
+                </h2>
+                <p class="text-neutral-500 text-lg" data-i18n="quote_subtitle">Tell us about your project and we'll get
+                    back to you shortly.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="quote-form" class="space-y-6">
+                <!-- Hidden fields for EmailJS -->
+                <input type="hidden" name="to_name" value="Jason Interior">
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_name">Name</label>
+                    <input type="text" id="name" name="from_name" required
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all placeholder:text-neutral-400"
+                        placeholder="Your name">
+                </div>
+
+                <!-- Contact Number -->
+                <div class="form-group">
+                    <label for="phone" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_phone">Contact Number</label>
+                    <input type="tel" id="phone" name="phone" required
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all placeholder:text-neutral-400"
+                        placeholder="010-0000-0000">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_email">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all placeholder:text-neutral-400"
+                        placeholder="your@email.com" data-i18n-placeholder="form_email_placeholder">
+                </div>
+
+                <!-- Site Address / Area -->
+                <div class="form-group">
+                    <label for="address" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_address">Site Address / Area</label>
+                    <input type="text" id="address" name="address"
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all placeholder:text-neutral-400"
+                        placeholder="Apartment, 30py..." data-i18n-placeholder="form_address_placeholder">
+                </div>
+
+                <!-- File Upload -->
+                <div class="form-group">
+                    <label for="file" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_file">Attachment</label>
+                    <input type="file" id="file" name="file"
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all text-sm text-neutral-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-neutral-100 file:text-neutral-700 hover:file:bg-neutral-200">
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message" class="block text-sm font-medium text-neutral-700 mb-2"
+                        data-i18n="form_message">Project Details</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full px-4 py-3 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all placeholder:text-neutral-400 resize-none"
+                        placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submit-btn"
+                    class="w-full py-4 bg-neutral-900 text-white font-medium rounded-lg hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 transition-all duration-300"
+                    data-i18n="form_submit">Submit</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="success-message" class="hidden text-center py-12">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-display font-medium mb-2" data-i18n="success_title">Thank You!</h3>
+                <p class="text-neutral-500" data-i18n="success_message">We've received your request and will contact you
+                    soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 lg:py-24 bg-white border-t border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center">
+                <!-- Footer Logo -->
+                <a href="#" class="inline-block mb-8">
+                    <img src="images/logo.png?v=3" alt="Jason Interior" class="h-16 lg:h-20 w-auto mx-auto">
+                </a>
+
+                <!-- Subtle divider -->
+                <div class="w-16 h-px bg-neutral-200 mx-auto mb-8"></div>
+
+                <!-- Copyright -->
+                <p class="text-sm text-neutral-400">
+                    © 2026 Jason Interior. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm">
+        <div class="absolute inset-0 flex items-center justify-center p-4 lg:p-8">
+            <!-- Close Button -->
+            <button id="lightbox-close"
+                class="absolute top-4 right-4 lg:top-8 lg:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Navigation Arrows -->
+            <button id="lightbox-prev"
+                class="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="lightbox-next"
+                class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <!-- Image Container -->
+            <div class="relative max-w-6xl max-h-[85vh] w-full">
+                <img id="lightbox-image" src="" alt=""
+                    class="w-full h-full max-h-[85vh] object-contain rounded-lg shadow-2xl lightbox-img">
+                <div id="lightbox-caption"
+                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-b-lg">
+                    <p class="text-white text-center text-lg font-light"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-neutral-900/95 text-white px-8 py-5 rounded-2xl shadow-2xl transform transition-all duration-500 scale-0 opacity-0 z-[200] flex items-center gap-4 pointer-events-none backdrop-blur-sm">
+        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span id="toast-message" class="text-sm font-medium">Message sent successfully!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

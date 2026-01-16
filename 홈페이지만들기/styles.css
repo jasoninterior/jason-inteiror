@@ -1,0 +1,397 @@
+/* ===================================
+   Jason Interior - Custom Styles
+   =================================== */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Logo Styling */
+.logo-text {
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.logo-text:hover {
+    opacity: 0.7;
+}
+
+/* Hide Scrollbar for Horizontal Scroll */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Concept Tab Styling */
+.concept-tab {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.concept-tab .tab-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #171717;
+    transition: width 0.3s ease;
+}
+
+.concept-tab.active .tab-indicator,
+.concept-tab:hover .tab-indicator {
+    width: 100%;
+}
+
+.concept-tab.active {
+    color: #171717;
+}
+
+/* Scroll Gallery Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-scroll {
+    animation: scroll 40s linear infinite;
+}
+
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* Hero Slider Transitions */
+.slider-slide {
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slider-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slider-dot {
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+/* Form Input Focus States */
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.1);
+}
+
+/* Button Hover Effects */
+#submit-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+#submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+#submit-btn:hover::before {
+    left: 100%;
+}
+
+/* Header Scroll Effect */
+.header-scrolled {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Menu Transitions */
+#mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* Gallery Item Hover */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Concept Image Fade */
+#concept-image {
+    transition: opacity 0.5s ease-in-out, transform 0.8s ease;
+}
+
+#concept-image.fade-out {
+    opacity: 0;
+}
+
+#concept-image-container:hover #concept-image {
+    transform: scale(1.02);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .animate-scroll {
+        animation-duration: 25s;
+    }
+
+    .animate-marquee {
+        animation-duration: 20s;
+    }
+}
+
+/* Loading Animation */
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Focus Styles for Accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
+}
+
+/* Smooth Image Loading */
+img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Language Button Active State */
+.lang-btn.active {
+    color: #171717;
+    font-weight: 500;
+}
+
+/* Slider Navigation Button Pulse */
+#slider-next {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+#slider-next:hover {
+    animation: none;
+}
+
+/* Quote Section Background Pattern */
+#quote {
+    position: relative;
+}
+
+#quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5e5e5, transparent);
+}
+
+/* Footer Decorative Element */
+footer {
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(23, 23, 23, 0.02), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Selection Color */
+::selection {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+/* Print Styles */
+@media print {
+
+    header,
+    #mobile-menu,
+    #slider-next,
+    .slider-dot {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+}
+
+/* Lightbox Styles */
+#lightbox {
+    transition: opacity 0.3s ease;
+}
+
+#lightbox-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Scroll Gallery Drag Styles */
+#scroll-gallery {
+    overflow-x: scroll;
+    scroll-behavior: auto;
+    /* Changed from smooth to auto for JS animation compatibility */
+    -webkit-overflow-scrolling: touch;
+}
+
+#scroll-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+#scroll-gallery {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#scroll-gallery.active {
+    cursor: grabbing;
+}
+
+#scroll-gallery.active .gallery-item {
+    pointer-events: none;
+}
+
+/* Gallery item click indicator */
+.gallery-item {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox overlay animation */
+#lightbox.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Lightbox navigation buttons hover */
+#lightbox-prev:hover,
+#lightbox-next:hover,
+#lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#lightbox-prev,
+#lightbox-next,
+#lightbox-close {
+    transition: all 0.2s ease;
+}
+
+/* Image zoom effect in lightbox on hover */
+#lightbox-image:hover {
+    cursor: zoom-in;
+}
